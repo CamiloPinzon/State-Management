@@ -1,15 +1,13 @@
-import { useReducer } from "react";
-
-import { counterReducer } from "../reducers/counterReducer";
+import { useState } from "react";
 
 const Counter = () => {
-	const [count, dispatch] = useReducer(counterReducer, 0); // Initialize state for the counter
+	const [count, setCount] = useState(0); // State for the counter
 
-	const increment = () => dispatch({ type: "increment" }); // Function to increment the counter
+	const increment = () => setCount(prevCount => prevCount + 1); // Function to increment the counter
 
-	const decrement = () => dispatch({ type: "decrement" }); // Function to decrement the counter
+	const decrement = () => setCount(prevCount => prevCount - 1); // Function to decrement the counter
 
-	const reset = () => dispatch({ type: "reset" }); // Function to reset the counter
+	const reset = () => setCount(0); // Function to reset the counter
 
 	return (
 		<div>
